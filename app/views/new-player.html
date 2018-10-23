@@ -1,1 +1,17 @@
-HELLO
+<div class="row top-20">
+    <div class="ten columns">
+        <h4>New Player</h4>
+        <input type="text" aria="New player name" ng-model="newPlayer.name" ng-required>
+        <button ng-click="addPlayer()">Add Player</button>
+    </div>
+</div>
+<div class="row">
+    <li ng-repeat="player in players">
+        {{player.name}}
+    </li>
+</div>
+<div class="row footer">
+   <a href="#!/start-game">
+        <button>Start Game</button>
+    </a>
+</div>

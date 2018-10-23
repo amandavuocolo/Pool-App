@@ -21,16 +21,20 @@
 </head>
 <body>
   <div class="container">
-    <div class="center top-30">
-      <div class="row">
-        <div class="center">
-          <img src="">
+    <span>
+      <a href="#!/" class="">
+        <div class="center top-30 logo">
+          <div class="center grid">
+            <span class="circle"></span>
+          </div>
           Pool App
         </div>
-      </div>
-    </div>
+      </a>
+    </span>
     <div ng-view></div>
   </div>
+  
+</div>
 
   
 
@@ -44,5 +48,6 @@
   <script src="controllers/newPlayerController.js"></script>
   <script src="controllers/leaderboardController.js"></script>
   <script src="controllers/startGameController.js"></script>
+  <script src="services/player-service.js"></script>
 </body>
 </html>

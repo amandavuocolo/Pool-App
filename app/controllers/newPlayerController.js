@@ -1,9 +1,33 @@
-app.controller('newPlayerController',['$scope',function($scope){
+app.controller('newPlayerController',['$scope', 'playerService', 
+    function($scope, playerService){
+
+    $scope.newPlayer = {};
 
     $scope.init = function(){
-        console.log('INIT new player THIS IS WORKING')
+        $scope.getPlayers();
     };
 
+    $scope.getPlayers = function(){
+        playerService.getPlayers().then(function(players){
+            $scope.players = players;
+            console.log($scope.players)
+        }, function(){
+            //handle error
+        })
+    }
+
+    $scope.addPlayer = function(){
+
+        /*-- by default new players will have zero wins --*/
+        $scope.newPlayer.wins = 0;
+
+        playerService.addPlayer($scope.newPlayer).then(function(){
+            $scope.newPlayer = [];
+            $scope.getPlayers();
+        }, function(){
+            //handle error
+        })
+    }
 
     $scope.init();
 

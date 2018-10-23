@@ -1,11 +1,63 @@
 .center {
-    margin: auto;
+    margin: 0 auto;
+    text-align: center;
 }
 
+.logo {
+    width:50%;
+}
+.top-20 {
+    margin-top: 20%;
+}
 .top-30 {
     margin-top: 30%;
 }
 
 .width-30 {
     width:50%;
+}
+
+.width-100 {
+    width:100%;
+}
+
+.grid {
+    display: table;
+}
+
+.circle{
+    border-radius: 50%;
+    border: 1px solid black;
+    width:25px;
+    height:25px;
+    text-align:center;
+    display:table-cell;
+}
+
+.circle-big{
+    border-radius: 50%;
+    border: 1px solid black;
+    width:75px;
+    height:75px;
+    text-align:center;
+    display:table-cell;
+}
+
+.table-cell {
+    display: table-cell;
+}
+
+.arrow {
+    border-left: 1px black solid;
+    border-top: 1px black solid;
+}
+
+.row .footer {
+    position: fixed;
+    bottom: 0;
+    background-color: gray;
+}
+
+button {
+    background-color: white;
 }
