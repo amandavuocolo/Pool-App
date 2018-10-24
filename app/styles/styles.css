@@ -9,12 +9,8 @@
 .top-10 {
     margin-top: 10%;
 }
-/* .top-30 {
+.top-30 {
     margin-top: 30%;
-} */
-
-.width-30 {
-    width:50%;
 }
 
 .width-100 {
@@ -66,30 +62,55 @@ button {
     overflow-x: scroll;
     max-height: 370px;
 }
+
+/* tiny */
+@media (min-width: 300px) {
+    .button-width {
+        width:100%;
+    }
+}
+
 /* Larger than mobile */
-/* @media (min-width: 400px) {
-    .list {
-        max-height: 370px;
+@media (min-width: 400px) {
+    .button-width {
+        width:100%;
     }
 }
 
-/* Larger than phablet (also point when grid becomes active) 
+/* Larger than phablet (also point when grid becomes active)  */
 @media (min-width: 550px) {
-    .list {
-        max-height: 370px;
+    .button-width {
+        width:100%;
     }
 }
 
-/* Larger than tablet 
-@media (min-width: 750px) {}
+/* Larger than tablet */
+@media (min-width: 750px) {
+    .button-width {
+        width:40%;
+    }
+}
 
-/* Larger than desktop 
-@media (min-width: 1000px) {}
+/* Larger than desktop */
+@media (min-width: 1000px) {
+    .button-width {
+        width: 20%;
+    }
+}
 
-/* Larger than Desktop HD 
-@media (min-width: 1200px) {} */
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {
+    .button-width {
+        width:20%;
+    }
+} 
 
 
 li {
     list-style-type: none;
+}
+
+a:hover, a:visited, a:link, a:active {
+    color: black;
+    text-decoration: none;
 }

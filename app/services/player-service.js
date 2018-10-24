@@ -1,8 +1,11 @@
 app.service('playerService', function($q){
     
+    /*-- This service is for the management of player data. It allows users to add new players and keep track of their wins. --*/
+
     var self = this;
 
     /*-- some sample data to start --*/
+    /*--store name, number of wins, and created date --*/
     self.players = [
         {
             name: 'Andrew',
@@ -19,10 +22,6 @@ app.service('playerService', function($q){
         }, {
             name: 'Sydney',
             wins: 1,
-            ctime: Date.now()
-        }, {
-            name: 'Andrew',
-            wins: 4,
             ctime: Date.now()
         }, {
             name: 'Jon',
@@ -43,11 +42,15 @@ app.service('playerService', function($q){
         return deferred.promise;
     };
 
-    /*-- add player to players object --*/
+    /*-- add new player to players object --*/
     self.addPlayer = function(player){
         var deferred = $q.defer();
-
+        
+        /*-- by default, new players will have zero wins --*/
+        player.wins = 0;
+        /*-- ctime (created time) is used to sort the players list on the new player creation view --*/
         player.ctime = Date.now();
+        /*-- push new player into playeres object --*/
         self.players.push(player);
 
         deferred.resolve(self.players);

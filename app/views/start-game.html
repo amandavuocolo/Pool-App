@@ -1,1 +1,51 @@
-START GAMES
+<div class="row top-10">
+    <div class="six columns">
+        <h4>Player One</h4>
+        <select 
+            ng-show="choosePlayer"
+            class="button-width"
+            ng-model='player1'
+            ng-options="player.name for player in players"
+            ng-change="getPlayerTwoOptions()"
+        >
+        </select>
+        <span ng-show="!choosePlayer">
+            {{player1.name}}
+        </span>
+    </div>
+    <div class="six columns">
+        <h4>Player Two</h4>
+        <select 
+            ng-show="choosePlayer"
+            class="button-width"
+            ng-model='player2'
+            ng-options="player.name for player in player2Options"
+        >
+        </select>
+        <span ng-show="!choosePlayer">
+            {{player2.name}}
+        </span>
+    </div>
+</div>
+<div class="row">
+    <h4>Choose the Winner:</h4>
+        <div class="six columns">
+            <button ng-click="chooseWinner(player1)">{{player1.name}}</button>
+        </div>
+        <div class="six columns">
+            <button ng-click="chooseWinner(player2)">{{player2.name}}</button>
+        </div>
+</div>
+<div class="row footer">
+    <div class="six columns">
+        <!-- <div class="center"> -->
+            <a href="#!/">
+                <button>Quit</button>
+            </a>
+        <!-- </div> -->
+    </div>
+    <div class="six columns">
+        <button ng-show="player1.name && player2.name" ng-click="toggleButton();">{{action}}</button>
+    </div>
+</div>
+    
