@@ -58,4 +58,21 @@ app.service('playerService', function($q){
         return deferred.promise;
     }
 
+    /*-- increment player's wins --*/
+    self.addWinner = function(winner){
+        console.log(winner)
+        var deferred = $q.defer();
+        
+        for (i=0; i<self.players.length; i++){
+            if (self.players[i].name == winner.name){
+                self.players[i].wins++;
+                console.log(self.players[i])
+            };
+        };
+
+        deferred.resolve(self.players);
+
+        return deferred.promise;
+    }
+
  });

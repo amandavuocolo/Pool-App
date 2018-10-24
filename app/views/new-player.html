@@ -3,6 +3,7 @@
         <h4>New Player</h4>
         <input type="text" aria="New player name" ng-model="newPlayer.name" ng-required>
         <button ng-click="addPlayer()">Add</button>
+        <div ng-show="showError">That player already exists!</div>
     </div>
     <div class="six columns">
         <div class="row">
