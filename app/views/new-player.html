@@ -1,17 +1,26 @@
-<div class="row top-20">
-    <div class="ten columns">
+<div class="row top-10">
+    <div class="six columns">
         <h4>New Player</h4>
         <input type="text" aria="New player name" ng-model="newPlayer.name" ng-required>
-        <button ng-click="addPlayer()">Add Player</button>
+        <button ng-click="addPlayer()">Add</button>
+    </div>
+    <div class="six columns">
+        <div class="row">
+            <h5>Existing Players</h5>
+        </div>
+        <div class="row list">
+            <li ng-repeat="player in players | orderBy: '-ctime'">
+                {{player.name}}
+            </li>
+        </div>
     </div>
 </div>
-<div class="row">
-    <li ng-repeat="player in players">
-        {{player.name}}
-    </li>
-</div>
 <div class="row footer">
-   <a href="#!/start-game">
-        <button>Start Game</button>
-    </a>
+    <div class="twelve columns">
+        <!-- <div class="center"> -->
+            <a href="#!/start-game">
+                <button>Start Game</button>
+            </a>
+        <!-- </div> -->
+    </div>
 </div>
