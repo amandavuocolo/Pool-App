@@ -1,1 +1,25 @@
-LEADERBOARD
+<div class="row top-10 center">
+    <h5>#1</h5>
+    <div ng-repeat="leader in leaders">
+        <h4>{{leader.name}}</h4>
+    </div>
+    <div>with ({{highScore}} win<span ng-if="highScore >1">s</span>)</div>
+</div>
+<div class="row top-10">
+    <div class="row list">
+        <ol start='{{leaders.length + 1}}'>
+            <li ng-repeat="player in players | orderBy: '-wins'">
+                {{player.name}} ({{player.wins}} win<span ng-hide="player.wins == 1">s</span>)
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="row footer">
+    <a href="#!/">
+        <button>Quit</button>
+    </a>
+    <a href="#!/start-game">
+        <button>Start New Game</button>
+    </a>
+</div>

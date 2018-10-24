@@ -9,7 +9,7 @@ app.service('playerService', function($q){
     self.players = [
         {
             name: 'Andrew',
-            wins: 5,
+            wins: 7,
             ctime: Date.now()
         }, {
             name: 'Nick',
@@ -60,13 +60,11 @@ app.service('playerService', function($q){
 
     /*-- increment player's wins --*/
     self.addWinner = function(winner){
-        console.log(winner)
         var deferred = $q.defer();
         
         for (i=0; i<self.players.length; i++){
             if (self.players[i].name == winner.name){
                 self.players[i].wins++;
-                console.log(self.players[i])
             };
         };
 

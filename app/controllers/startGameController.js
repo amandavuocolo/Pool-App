@@ -33,8 +33,7 @@ app.controller('startGameController',['$q', '$scope', 'playerService', '$locatio
     $scope.getPlayerTwoOptions = function(){
         //make new array for player two options
         $scope.player2Options = angular.copy($scope.players);
-        //loop backwards and splice out player 1
-        // for (var i=$scope.player2Options.length; i>0; i--){
+        //loop and splice out player 1
         for (i=0; i<$scope.player2Options.length; i++){
             if ($scope.players[i].name == $scope.player1.name){
                 $scope.player2Options.splice(i, 1);
@@ -45,10 +44,12 @@ app.controller('startGameController',['$q', '$scope', 'playerService', '$locatio
     //toggles between editing and not editing
     $scope.toggleButton = function(val){
 
+        //this condition is only met once a winner is chosen
         if ($scope.action == 'View Leaderboard'){
-            $location.path('#!/leaderboard');
+            $location.path('leaderboard');
         }
 
+        //if there are no params (if no winner has been chosen)
         if (val != 'win'){
             //flip choosePlayer boolean
             $scope.choosePlayer = !$scope.choosePlayer;
@@ -76,7 +77,7 @@ app.controller('startGameController',['$q', '$scope', 'playerService', '$locatio
 
         playerService.addWinner(winner).then(function(){
             $scope.getPlayers().then(function(){
-                //update local winner object
+                //update local winner object to display
                 $scope.winner.wins++;
                 $scope.toggleButton('win');
             }, function(){

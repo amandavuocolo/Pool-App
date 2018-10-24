@@ -21,22 +21,24 @@ app.controller('newPlayerController',['$scope', 'playerService', '$timeout',
 
     /*-- adds new player --*/
     $scope.addPlayer = function(){
-        //chech for duplicate
+        //check for duplicate
         for (i=0; i<$scope.players.length; i++){
-            console.log($scope.players[i].name)
             if ($scope.players[i].name == $scope.newPlayer.name){
-                console.log('MATCH')
+                //turn on error message
                 $scope.showError = true;
-                //show error for four seconds
+                //show error message for 2.5 seconds
                 $timeout( function(){
                     $scope.showError = false;
                 }, 2500 );
             }
         }
 
+        //if there is no duplicate, add player
         if(!$scope.showError){
             playerService.addPlayer($scope.newPlayer).then(function(){
+                //reset form
                 $scope.newPlayer = [];
+                //reload list
                 $scope.getPlayers();
             }, function(){
                 //handle error

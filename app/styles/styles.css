@@ -106,7 +106,7 @@ button {
 } 
 
 
-li {
+.no-dots {
     list-style-type: none;
 }
 
