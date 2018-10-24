@@ -1,0 +1,28 @@
+<div class="row top-10">
+    <div class="six columns">
+        <h4>New Player</h4>
+        <input type="text" aria="New player name" ng-model="newPlayer.name" ng-required>
+        <button ng-click="addPlayer()">Add</button>
+        <div ng-show="showError">That player already exists!</div>
+    </div>
+    <div class="six columns">
+        <div class="row">
+            <h5>Existing Players</h5>
+        </div>
+        <div class="row list">
+            <li ng-repeat="player in players | orderBy: '-ctime'" class="no-dots">
+                {{player.name}}
+            </li>
+        </div>
+    </div>
+</div>
+<div class="row footer">
+    <div class="twelve columns">
+        <a href="#!/">
+            <button>Quit</button>
+        </a>
+        <a href="#!/start-game">
+            <button>Start Game</button>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="row top-10">
+    <!-- <div class="six columns"> -->
+        <h4>Player One</h4>
+        <select 
+            ng-show="action == 'Confirm Players'"
+            class="button-width"
+            ng-model='player1'
+            ng-options="player.name for player in players"
+            ng-change="getPlayerTwoOptions()"
+        >
+        </select>
+        <span ng-show="action != 'Confirm Players'">
+            {{player1.name}}
+        </span>
+    <!-- </div> -->
+    <!-- <div class="six columns"> -->
+        <h4>Player Two</h4>
+        <select 
+            ng-show="action == 'Confirm Players'"
+            class="button-width"
+            ng-model='player2'
+            ng-options="player.name for player in player2Options"
+        >
+        </select>
+        <span ng-show="action != 'Confirm Players'">
+            {{player2.name}}
+        </span>
+        
+    </di?v>
+</div>
+<div class="row top-10" ng-show="action == 'Start Over'">
+    <h4>Choose the Winner:</h4>
+</div>
+<div class="row" ng-show="action == 'Start Over'">
+    <button ng-click="chooseWinner(player1)">{{player1.name}}</button>
+    <button ng-click="chooseWinner(player2)">{{player2.name}}</button>
+</div>
+<div class="row top-10" ng-show="action == 'View Leaderboard'">
+    <h4>Winner!</h4>
+    <div>{{winner.name}} ({{winner.wins}} win<span ng-if="winner.wins >1">s</span>)</div>
+    <button ng-click="init()">Start New Game</button>
+</div>
+<div class="row footer">
+    <a href="#!/">
+        <button>Quit</button>
+    </a>
+    <button ng-show="player1.name && player2.name" ng-click="toggleButton();">{{action}}</button>
+</div>
+    
